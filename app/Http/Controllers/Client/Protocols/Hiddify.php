@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Client\Protocols;
 use App\Utils\Helper;
 use Symfony\Component\Yaml\Yaml;
 
-class ClashMeta
+class Hiddify
 {
-    public $flag = 'meta';
+    public $flag = 'hiddify';
     private $servers;
     private $user;
 

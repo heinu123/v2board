@@ -41,6 +41,7 @@ class ClientController extends Controller
     {
         if (!isset($servers[0])) return;
         if (!(int)config('v2board.show_info_to_server_enable', 0)) return;
+        $url = config('v2board.app_url');
         $useTraffic = $user['u'] + $user['d'];
         $totalTraffic = $user['transfer_enable'];
         $remainingTraffic = Helper::trafficConvert($totalTraffic - $useTraffic);
@@ -57,6 +58,9 @@ class ClientController extends Controller
         }
         array_unshift($servers, array_merge($servers[0], [
             'name' => "剩余流量：{$remainingTraffic}",
+        ]));
+        array_unshift($servers, array_merge($servers[0], [
+            'name' => "官网：{$url}",
         ]));
     }
 }
